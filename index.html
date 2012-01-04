@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+    
+        $(document).ready(function(){
+                try {
+                        jsToggle();
+                } catch (jsToggleE){
+                
+                }
+        });
+        
+        function jsToggle(){    
+                if(!supports_input_placeholder()){
+                        
+                        
+                        $(".placeholder").focus(function(){
+                           if($(this).val() == $(this).attr("placeholder")){
+                                   $(this).attr("value","");
+                                   $(this).css('color','');
+                           }
+                        }).blur(function(){
+                           if($(this).val() == ""){
+                                   $(this).attr("value",$(this).attr("placeholder"));
+                                        $(this).css('color','#c3c3c3');
+                           }
+                        });
+                        
+                        $(".placeholder").each(function(){
+                                if($(this).val() == ""){
+                                        $(this).val($(this).attr("placeholder"));
+                                        $(this).css('color','#c3c3c3');
+                                }
+                        });
+                }
+        }
+        
+        function supports_input_placeholder() {
+          var i = document.createElement('input');
+          return 'placeholder' in i;
+        }
+        
+    </script>
+    
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+	</div><!-- #header-->
+
+	<div id="content">
+        <div class="contentForm">
+            <form method="post" action="#">
+                <div class="mandatory">mandatory</div>
+                <input id="firstName" name="firstName" type="text" class="placeholder" placeholder="first name:"/><br />
+                <input id="lastName" name="lastName" type="text" class="placeholder" placeholder="last name:"/> <input id="email" name="email" type="text" class="placeholder" placeholder="email address:"/><br />
+                <textarea id="note" name="note" class="placeholder" placeholder="how will you 'be good to you in 2012'?" rows="10" cols="10"></textarea><br />
+                <div style="text-align: right; margin-right:10px;">
+                    <a href="#">Official Rules</a>
+                    <a href="#">Privacy Poilicy</a>
+                    <input type="submit" value=""/>
+                </div>
+            </form>
+        </div>
+		
+	</div><!-- #content-->
+    
+    <div id="footer">
+    </div><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+</body>
+</html>
